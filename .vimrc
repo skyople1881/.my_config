@@ -8,17 +8,17 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
-"Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme'
 
 Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
 " ayu-vim 
-set termguicolors     " enable true colors support
+"set termguicolors     " enable true colors support
 "let ayucolor="light"  " for light version of theme
 "let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+"let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 "
 
@@ -28,8 +28,12 @@ set laststatus=2
 let g:airline_theme='papercolor'
 
 " indentLine
-let g:indentLine_enabled = 0
-let g:indentLine_setColors = 0
+let g:indentLine_enabled = 1
+let g:indentLine_setColors = 1
+let g:indentLine_char = "┆"
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = "˽"
+let g:indentLine_color_term = 239
 
 "youcompleteme
 "let g:ycm_enable_diagnostic_highlighting = 1
@@ -41,13 +45,17 @@ let g:indentLine_setColors = 0
 "let g:ycm_add_preview_to_completeopt = 0
 "set pumheight=5
 
-
+"Basic setting
 set nu
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
-set list lcs=tab:\|\ 
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+"set list lcs=tab:\|\ 
 syntax on
 set mouse=a
 set nocompatible              " be iMproved, required
+"Compile c code parameters & Shortcut
 se makeprg=g++\ -fcolor-diagnostics\ -Wall\ -Wshadow\ -O2\ -std=c++11\ -o\ %<\ %
 map! <F7> <ESC>:wa<CR>:make!<CR>
 map <F7> <ESC>:wa<CR>:make!<CR>
+"Reload vimrc shortcut
+map! <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
+map <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
