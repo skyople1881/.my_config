@@ -52,10 +52,13 @@ set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 syntax on
 set mouse=a
 set nocompatible              " be iMproved, required
+"Color
+set term=screen-256color
+set t_ut=
 "Compile c code parameters & Shortcut
-se makeprg=g++\ -fcolor-diagnostics\ -Wall\ -Wshadow\ -O2\ -std=c++11\ -o\ %<\ %
-map! <F7> <ESC>:wa<CR>:make!<CR>
-map <F7> <ESC>:wa<CR>:make!<CR>
+se makeprg=g++\ -Wall\ -Wshadow\ -O2\ -std=c++11\ -o\ %<\ %
+map! <F7> <ESC>:wa<CR>:make! | colorgcc<CR>
+map <F7> <ESC>:wa<CR>:make! | colorgcc<CR>
 "Reload vimrc shortcut
 map! <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
 map <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
