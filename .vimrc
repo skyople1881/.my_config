@@ -53,12 +53,12 @@ syntax on
 set mouse=a
 set nocompatible              " be iMproved, required
 "Color
-set term=screen-256color
-set t_ut=
+"set term=screen-256color
+"set t_ut=
 "Compile c code parameters & Shortcut
 se makeprg=g++\ -Wall\ -Wshadow\ -O2\ -std=c++11\ -o\ %<\ %
-map! <F7> <ESC>:wa<CR>:make! | colorgcc<CR>
-map <F7> <ESC>:wa<CR>:make! | colorgcc<CR>
+map! <F7> <ESC>:wa<CR>:make!<CR>
+map <F7> <ESC>:wa<CR>:make!<CR>
 "Reload vimrc shortcut
 map! <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
 map <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
