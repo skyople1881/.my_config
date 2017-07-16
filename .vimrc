@@ -2,13 +2,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ayu-theme/ayu-vim' " or other package manager
 
-Plug 'pangloss/vim-javascript'
-
 Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 
 Plug 'Yggdroot/indentLine'
 
@@ -48,17 +46,15 @@ let g:indentLine_color_term = 239
 "Basic setting
 set nu
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
-"set list lcs=tab:\|\ 
 syntax on
 set mouse=a
 set nocompatible              " be iMproved, required
 "Color
-"set term=screen-256color
-"set t_ut=
+"set term=screen-256color "Warning will cause End Home Key fail
 "Compile c code parameters & Shortcut
 se makeprg=g++\ -Wall\ -Wshadow\ -O2\ -std=c++11\ -o\ %<\ %
-map! <F7> <ESC>:wa<CR>:make!<CR>
-map <F7> <ESC>:wa<CR>:make!<CR>
+map! <F7> <ESC>:wa<CR>:make!
+map <F7> <ESC>:wa<CR>:make!
 "Reload vimrc shortcut
 map! <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
 map <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
