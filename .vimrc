@@ -10,14 +10,23 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Yggdroot/indentLine'
 
+Plug 'octol/vim-cpp-enhanced-highlight'
+
 call plug#end()
+
+" C syntax highlight
+let g:cpp_class_decl_highlight = 1
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+
 
 " ayu-vim 
 "set termguicolors     " enable true colors support
 "let ayucolor="light"  " for light version of theme
 "let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+"colorscheme ayu
 "
 
 " vim-airline-theme
@@ -45,16 +54,19 @@ let g:indentLine_color_term = 239
 
 "Basic setting
 set nu
+set cursorline
+hi CursorLine cterm=bold ctermbg=240 ctermfg=none
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 syntax on
 set mouse=a
 set nocompatible              " be iMproved, required
-"Color
-"set term=screen-256color "Warning will cause End Home Key fail
 "Compile c code parameters & Shortcut
-se makeprg=g++\ -Wall\ -Wshadow\ -O2\ -std=c++11\ -o\ %<\ %
-map! <F7> <ESC>:wa<CR>:make!
-map <F7> <ESC>:wa<CR>:make!
-"Reload vimrc shortcut
-map! <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
-map <C-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
+set makeprg=g++\ -Wall\ -Wshadow\ -O2\ -std=c++11\ %\ -o\ %:r
+autocmd filetype cpp map <F9> :w <bar> make <CR> <CR> :vert copen <CR> :vert resize 40 <CR> 
+autocmd filetype cpp map <F9> :w <bar> make <CR> <CR> :vert copen <CR> :vert resize 40 <CR>
+map <S-F9> :cclose <CR>
+nnoremap <silent> <leader>] :cnext<CR>  
+nnoremap <silent> <leader>[ :cprevious<CR>
+"Reload vimrc shortcut96
+map! <C-S-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
+map <C-S-r> <ESC>:wa<CR>:source ~/.vimrc<CR>
